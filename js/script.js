@@ -29,7 +29,8 @@ const app = new Vue({
                 text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
             }
         ],
-        currentIndex: 0
+        currentIndex: 0,
+        timer: null
     },
     methods: {
         up(){
@@ -45,6 +46,15 @@ const app = new Vue({
             } else {
                 this.currentIndex -= 1
             }
+        },
+        autoScroll(){
+            this.timer = setInterval(()=>{
+                this.up();
+            },3000) 
+        },
+        stopAutoScroll(){
+            clearInterval(this.timer)
+            this.timer = null
         }
     }
 })
