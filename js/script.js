@@ -55,6 +55,11 @@ const app = new Vue({
         stopAutoScroll(){
             clearInterval(this.timer)
             this.timer = null
+        },
+        goTo(i){
+            if (this.currentIndex != i){
+                this.currentIndex = i
+            }
         }
     }
 })
